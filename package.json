@@ -7,6 +7,7 @@
     "test": "npx tape -r @babel/register test",
     "build": "babel src -d ."
   },
+  "repository": "git@github.com:swiftyapp/cryptor.git",
   "keywords": [
     "cryptr",
     "crypter",
