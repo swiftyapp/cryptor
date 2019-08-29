@@ -46,7 +46,7 @@ export function Cryptor(secret) {
     const tag = getTag(stringValue)
     const encrypted = getEncryptedValue(stringValue)
 
-    const key = getKey(salt)
+    const key = generateKey(salt)
 
     const decipher = crypto.createDecipheriv(ALGORITHM, key, iv)
 
@@ -64,15 +64,18 @@ export function Cryptor(secret) {
   }
 
   const getIV = string => {
-    string.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH)
+    return string.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH)
   }
 
   const getTag = string => {
-    string.slice(SALT_LENGTH + IV_LENGTH, SALT_LENGTH + IV_LENGTH + TAG_LENGTH)
+    return string.slice(
+      SALT_LENGTH + IV_LENGTH,
+      SALT_LENGTH + IV_LENGTH + TAG_LENGTH
+    )
   }
 
   const getEncryptedValue = string => {
-    string.slice(SALT_LENGTH + IV_LENGTH + 16)
+    return string.slice(SALT_LENGTH + IV_LENGTH + 16)
   }
 
   const checkValue = value => {

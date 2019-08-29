@@ -46,7 +46,7 @@ function Cryptor(secret) {
     var iv = getIV(stringValue);
     var tag = getTag(stringValue);
     var encrypted = getEncryptedValue(stringValue);
-    var key = getKey(salt);
+    var key = generateKey(salt);
 
     var decipher = _crypto["default"].createDecipheriv(ALGORITHM, key, iv);
 
@@ -63,15 +63,15 @@ function Cryptor(secret) {
   };
 
   var getIV = function getIV(string) {
-    string.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH);
+    return string.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH);
   };
 
   var getTag = function getTag(string) {
-    string.slice(SALT_LENGTH + IV_LENGTH, SALT_LENGTH + IV_LENGTH + TAG_LENGTH);
+    return string.slice(SALT_LENGTH + IV_LENGTH, SALT_LENGTH + IV_LENGTH + TAG_LENGTH);
   };
 
   var getEncryptedValue = function getEncryptedValue(string) {
-    string.slice(SALT_LENGTH + IV_LENGTH + 16);
+    return string.slice(SALT_LENGTH + IV_LENGTH + 16);
   };
 
   var checkValue = function checkValue(value) {
