@@ -10,13 +10,6 @@ export function Cryptor(secret) {
     throw new Error('Cryptor: secret must be a non-empty string')
   }
 
-  const hashedSecret = crypto
-    .createHash('sha512')
-    .update(secret)
-    .digest('base64')
-
-  secret = null
-
   this.encrypt = value => {
     checkValue(value)
 
@@ -56,7 +49,7 @@ export function Cryptor(secret) {
   }
 
   const generateKey = salt => {
-    return crypto.pbkdf2Sync(hashedSecret, salt, 100000, 32, 'sha512')
+    return crypto.pbkdf2Sync(secret, salt, 100000, 32, 'sha512')
   }
 
   const getSalt = string => {

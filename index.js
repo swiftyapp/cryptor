@@ -19,10 +19,6 @@ function Cryptor(secret) {
     throw new Error('Cryptor: secret must be a non-empty string');
   }
 
-  var hashedSecret = _crypto["default"].createHash('sha512').update(secret).digest('base64');
-
-  secret = null;
-
   this.encrypt = function (value) {
     checkValue(value);
 
@@ -55,7 +51,7 @@ function Cryptor(secret) {
   };
 
   var generateKey = function generateKey(salt) {
-    return _crypto["default"].pbkdf2Sync(hashedSecret, salt, 100000, 32, 'sha512');
+    return _crypto["default"].pbkdf2Sync(secret, salt, 100000, 32, 'sha512');
   };
 
   var getSalt = function getSalt(string) {

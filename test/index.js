@@ -14,6 +14,18 @@ test('Encrypts and decrypts data', t => {
   t.equal(decrypted, data)
 })
 
+test('Another cryptor instance can decrypt data', t => {
+  t.plan(1)
+
+  const cryptor1 = new Cryptor(secret)
+  const encrypted = cryptor1.encrypt(data)
+
+  const cryptor2 = new Cryptor(secret)
+  const decrypted = cryptor2.decrypt(encrypted)
+
+  t.equal(decrypted, data)
+})
+
 test('Encryptor generates a different value each time', t => {
   t.plan(1)
 
