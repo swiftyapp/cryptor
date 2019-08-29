@@ -29,9 +29,8 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
-    "eslint": "^6.2.2"
-  },
-  "dependencies": {
+    "eslint": "^6.2.2",
     "tape": "^4.11.0"
-  }
+  },
+  "dependencies": {}
 }
