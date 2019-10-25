@@ -1,6 +1,6 @@
 {
   "name": "@swiftyapp/cryptor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Basic encrypt and decrypt node module",
   "main": "index.js",
   "scripts": {
