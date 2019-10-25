@@ -47,7 +47,7 @@ function Cryptor(secret) {
     var decipher = _crypto["default"].createDecipheriv(ALGORITHM, key, iv);
 
     decipher.setAuthTag(tag);
-    return decipher.update(encrypted, 'hex', 'utf8') + decipher["final"]('utf8');
+    return decipher.update(encrypted, 'base64', 'utf8') + decipher["final"]('utf8');
   };
 
   var generateKey = function generateKey(salt) {

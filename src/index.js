@@ -45,7 +45,7 @@ export function Cryptor(secret) {
 
     decipher.setAuthTag(tag)
 
-    return decipher.update(encrypted, 'hex', 'utf8') + decipher.final('utf8')
+    return decipher.update(encrypted, 'base64', 'utf8') + decipher.final('utf8')
   }
 
   const generateKey = salt => {
