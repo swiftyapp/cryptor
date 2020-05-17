@@ -4,7 +4,7 @@
   "description": "Basic encrypt and decrypt node module",
   "main": "index.js",
   "scripts": {
-    "test": "npx tape -r @babel/register test",
+    "test": "npx tape -r @babel/register test/*",
     "build": "webpack"
   },
   "repository": "git@github.com:swiftyapp/cryptor.git",
