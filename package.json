@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx tape -r @babel/register test",
-    "build": "babel src -d ."
+    "build": "webpack"
   },
   "repository": "git@github.com:swiftyapp/cryptor.git",
   "keywords": [
@@ -30,7 +30,9 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
     "eslint": "^7.0.0",
-    "tape": "^5.0.0"
+    "tape": "^5.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {},
   "resolutions": {
