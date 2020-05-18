@@ -24,10 +24,10 @@ export const encrypt = (cleartext, password, encoding = 'base64') => {
 
 export const decrypt = (ciphertext, password, encoding = 'base64') => {
   const buffer = Buffer.from(String(ciphertext), encoding)
-  const salt = buffer.slice(0, SALT_LENGTH).toString('base64')
-  const iv = buffer.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH).toString('base64')
+  const salt = buffer.slice(0, SALT_LENGTH)
+  const iv = buffer.slice(SALT_LENGTH, SALT_LENGTH + IV_LENGTH)
   const tag = buffer.slice(SALT_LENGTH + IV_LENGTH, SALT_LENGTH + IV_LENGTH + TAG_LENGTH)
-  const encrypted = buffer.slice(SALT_LENGTH + IV_LENGTH + TAG_LENGTH).toString('base64')
+  const encrypted = buffer.slice(SALT_LENGTH + IV_LENGTH + TAG_LENGTH)
 
   const key = pbkdf2(password, salt)
 
@@ -41,6 +41,7 @@ export const decrypt = (ciphertext, password, encoding = 'base64') => {
   } catch (e) {
     console.log('Warning: Failed to authenticate data')
   }
+
   return unpad(cleartext)
 }
 

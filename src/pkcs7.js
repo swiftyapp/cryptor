@@ -1,4 +1,3 @@
-
 export const pad = (data, size = 16) => {
   let out = data
   const padLen = size - data.length % size
