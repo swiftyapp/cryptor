@@ -1,6 +1,6 @@
 # Swifty Cryptor
 
-Basic encrypt and decrypt node module
+Basic encrypt and decrypt node module. DEPRECATED
 
 [![CircleCI](https://circleci.com/gh/swiftyapp/cryptor/tree/master.svg?style=svg)](https://circleci.com/gh/swiftyapp/cryptor/tree/master)
 
